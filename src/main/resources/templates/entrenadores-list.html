@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    
+
+<head>
+    <title>Tabla Entrenadores</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" th:href="@{/css/team_table.css}">
+   <link rel="shortcut icon" th:href="@{/img/iconp.png}" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://kit.fontawesome.com/a8699accd2.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="flex justify-center items-center bg-gradient-to-r from-yellow-300 to-orange-300 ">
+<header>
+    <div class="cont_header">
+        <div class="logo">
+            <a th:href="@{/}">
+                <img th:src="@{/img/logo.png}" alt="">
+            </a>
+        </div><br><br>
+        <div class="BIENVENIDO">
+            <a class="font-sans bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-full " style="text-decoration: none"; th:href="@{/entrenadores}">
+			 <i class="fa-solid fa-circle-left" style="color: #ffffff;"></i><br>
+			</a><br>
+			 <a class="font-sans bg-cyan-700 hover:bg-cyan-900 text-white font-bold py-2 px-4 rounded-full " th:href="@{/index}" >
+					<i class="fa-solid fa-house" style="color: #ffffff;"></i>
+					</a>
+        </div>
+    </div>
+</header>
+<main><br><br>
+    <div class="cont">
+        <div class="cont_main">
+             <a th:href="@{/entrenadores/new}"  class="text-white font-sans text-2xl text-white font-sans bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-10 rounded-full">
+				<i class="fa-solid fa-plus" style="color: #ffffff;"></i>
+            </a>
+            <table class="table table-striped m-3 tab">
+                <thead>
+                <tr class="text-white font-sans">
+                    <td><strong>Id</strong></td>
+                    <td><strong>Nombre</strong></td>
+                    <td><strong>Apellido</strong></td>
+                    <td><strong>Edad</strong></td>
+                    <td><strong>Nacionalidad</strong></td>
+                    <td><strong>Editar</strong></td>
+                    <td><strong>Eliminar</strong></td>
+                </tr>
+                </thead>
+                <tbody class="">
+                <tr th:each="entrenadores: ${entrenadores}">
+                    <td>[[ ${entrenadores.id} ]]</td>
+                    <td>[[ ${entrenadores.nombre} ]]</td>
+                    <td>[[ ${entrenadores.apellido} ]]</td>
+                    <td>[[ ${entrenadores.edad} ]]</td>
+                    <td>[[ ${entrenadores.nacionalidad} ]]</td>
+                    <td>
+                        <a class="mx-3 text-warning" th:href="@{/entrenadores/edit/{id}(id = ${entrenadores.id})}">
+                            <i class="fa-solid fa-file-pen" style="color: #ffee33;"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="mx-3 text-danger" th:href="@{/entrenadores/delete/{id}(id = ${entrenadores.id})}">
+                            <i class="fa-solid fa-trash" style="color: #f74002;"></i>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js}" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    
+
+<head>
+    <title>Tabla Clubes</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" th:href="@{/css/team_table.css}">
+   <link rel="shortcut icon" th:href="@{/img/iconp.png}" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://kit.fontawesome.com/a8699accd2.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="flex justify-center items-center bg-gradient-to-r  from-yellow-300 to-blue-500 ">
+<header>
+    
+        <br><br><div class="BIENVENIDO">
+            <a class="font-sans bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-full " style="text-decoration: none"; th:href="@{/clubes}">
+			 <i class="fa-solid fa-circle-left" style="color: #ffffff;"></i><br>
+			</a><br>
+			   <a class="font-sans bg-cyan-700 hover:bg-cyan-900 text-white font-bold py-2 px-4 rounded-full " th:href="@{/index}" >
+					<i class="fa-solid fa-house" style="color: #ffffff;"></i>
+					</a>
+        </div>
+    </div>
+</header>
+<main><br><br>
+    <div class="cont">
+        <div class="cont_main">
+             <a th:href="@{/clubes/new}"  class="text-white font-sans text-2xl text-white font-sans bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-10 rounded-full">
+				<i class="fa-solid fa-plus" style="color: #ffffff;"></i>
+            </a>
+            <table class="table table-striped m-3 tab">
+                <thead>
+                <tr class="text-white font-sans">
+                    <td><strong>Id</strong></td>
+                    <td><strong>Nombre</strong></td>
+                    <td><strong>Jugadores</strong></td>
+                    <td><strong>Entrenadores</strong></td>
+                    <td><strong>Competiciones</strong></td>
+                    <td><strong>Asociaciones</strong></td>
+                    <td><strong>Editar</strong></td>
+                    <td><strong>Eliminar</strong></td>
+                </tr>
+                </thead>
+                <tbody class="">
+                <tr th:each="clubes: ${clubes}">
+                    <td>[[ ${clubes.id} ]]</td>
+                    <td>[[ ${clubes.nombre} ]]</td>
+                    <td>
+				<ul>
+            		<li th:each="jugadores : ${clubes.jugadores}" th:text="${jugadores.nombre}"></li>
+       			</ul>
+    				</td>
+    				<td>
+        		<ul>
+            		<li th:each="entrenadores : ${clubes.entrenadores}" th:text="${entrenadores.nombre}"></li>
+        		</ul>
+    				</td>
+    				<td>
+        		<ul>
+            		<li th:each="competiciones : ${clubes.competiciones}" th:text="${competiciones.nombre}"></li>
+        		</ul>
+    				</td>
+    				<td>
+       			 <ul>
+            		<li th:each="asociaciones : ${clubes.asociaciones}" th:text="${asociaciones.nombre}"></li>
+        		</ul>
+    				</td>
+   					 <td>
+                        <a class="mx-3 text-warning" th:href="@{/clubes/edit/{id}(id = ${clubes.id})}">
+                            <i class="fa-solid fa-file-pen" style="color: #ffee33;"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="mx-3 text-danger" th:href="@{/clubes/delete/{id}(id = ${clubes.id})}">
+                            <i class="fa-solid fa-trash " style="color: #f74002;"></i>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js}" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    
+
+<head>
+    <title>Gestion FUTBOL</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" th:href="@{/Css/Styles.css}">
+   <link rel="shortcut icon" th:href="@{/img/iconp.png}" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://kit.fontawesome.com/a8699accd2.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-gradient-to-r  from-cyan-700 to-cyan-400">
+	<header>
+	<div class="gestion">
+	<nav class="bg-cyan-700 p-2 shadow-lg rounded h-[80px] w-[800px]">
+    <div>
+        <div class="flex  items-center">
+            <!-- Logo o Nombre del Sitio -->
+            <img th:src="@{/img/iconp.png}" class="h-[60px] w-[60px] rounded-full ml-4 mr-8">
+            <!-- Enlaces de Navegación -->
+            <ul class="flex space-x-4">
+                <li><a th:href="@{/index}" class="text-white hover:text-blue-300">
+					<i class="fa-solid fa-house fa-2x" style="color: #ffffff;"></i></a></li>
+                
+            </ul>
+                    
+        </div>
+    </div>
+		</nav>
+	</div>
+	</header><br>
+
+
+<main>
+	<div class="gesti">
+		<div class="flex justify-center items-center shadow-lg rounded w-[500px]">
+			<table class="min-w-full divide-y divide-cyan-500 shadow-lg rounded">
+			
+    <thead>
+        <tr>
+            <th class="rounded px-6 py-3 bg-cyan-700 text-left text-xs leading-4 font-medium text-cyan-600 uppercase tracking-wider"><strong class="text-white">Gestion futbol  </strong><i class="fa-solid fa-pen-to-square fa-lg" style="color: #ffffff;"></i></th>
+        </tr>
+    </thead>
+    <tbody class="bg-cyan-600 divide-y divide-gray-200 h-[225.83px]">
+        <tr>
+            <td class="px-6 py-4 whitespace-no-wrap rounded">
+                
+                <a th:href="@{/jugadores}"class="bg-gradient-to-r  from-blue-700 to-blue-400 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-md mr-2">Gestion Jugadores</a>
+                <a th:href="@{/entrenadores}" class="bg-gradient-to-r  from-blue-700 to-blue-400 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-md">Gestion Entrenadores</a><br><br>
+                <a th:href="@{/competiciones}" class="bg-gradient-to-r  from-blue-700 to-blue-400 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-md mr-2">Gestion Competiciones</a>
+                <a th:href="@{/asociaciones}" class="bg-gradient-to-r  from-blue-700 to-blue-400 hover:bg-white text-white font-semibold px-4 py-2 rounded-md">Gestion Asociaciones</a><br><br>
+                <div class="flex justify-center items-center">
+                  <a th:href="@{/clubes}" class="felx justify-center items-center bg-gradient-to-r  from-green-700 to-green-400 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-md ">Gestion Clubes</a>
+            </td>
+            
+        </tr>
+       
+    </tbody>
+		</table>
+	</div>
+</div>
+
+
+
+
+<div  class="compe">
+	<div class="flex justify-center items-center shadow-lg rounded w-[400px] ">
+			<table class="min-w-full divide-y divide-cyan-500 shadow-lg rounded">
+    <thead>
+        <tr>
+            <th class="rounded px-6 py-3 bg-cyan-700 text-left text-xs leading-4 font-medium text-cyan-600 uppercase tracking-wider"><strong class="text-white">Proximas Competiciones  </strong><i class="fa-regular fa-futbol fa-lg" style="color: #ffffff;"></th>
+        </tr>
+    </thead>
+    <tbody class="bg-cyan-600 divide-y divide-gray-200 h-[225.83px] ">
+        <tr>
+            <td class="px-6 py-4 whitespace-no-wrap rounded">
+              
+			 <p class="bg-gradient-to-r  from-yellow-700 to-red-400 hover:bg-yellow-700 text-white font-semibold px-4 py-2 rounded-md"><span class="text-white text-4xl font-sans" th:text="${nombreCompeticion}"></span>
+         	 <br> Comienza en: <span class="text-white text-4xl font-sans" th:text="${diasRestantes}"></span> dias <br> <span class="text-white text-2xl font-sans"  th:text="${horasRestantes}"></span> Hora <span class="text-white text-xl font-sans" th:text="${minRestantes}"></span>  Minutos <i class="fa-regular fa-calendar-days" style="color: #ffffff;"></i></p>
+            <br><a th:href="@{/competiciones}" class="flex justify-center bg-gradient-to-r  from-blue-700 to-blue-400 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-md mr-2">Ver Competiciones</a>
+		 	
+
+            </td>       
+            
+        </tr>
+       
+    </tbody>
+		</table>
+    </div>  
+</div>
+
+
+
+    
+         
+         
+</main>
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js}" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js}" intity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+</body>
+
+</html>

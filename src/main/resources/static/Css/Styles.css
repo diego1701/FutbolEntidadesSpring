@@ -1,0 +1,39 @@
+a{
+	text-decoration: none;
+}
+
+.gesti{
+	position: absolute;
+	left: 320px;
+    top:140px;
+}
+
+.gesti:hover{
+    transform:scale(1.1);
+    box-shadow: 10px 5px 40px rgb(186, 231, 252);
+    border-radius: 10px;
+    
+}
+
+.compe{
+	position: absolute;
+	top:140px;
+	left:810px;
+	margin-left:60px;
+	
+}
+
+.compe:hover{
+    transform:scale(1.1);
+    box-shadow: 10px 5px 40px rgb(186, 231, 252);
+    border-radius: 10px;
+    
+}
+
+
+.gestion{
+	position: absolute;
+	left: 400px;
+	
+	
+}
